@@ -1,0 +1,2 @@
+videoLogItems = [];
+export default videoLogItems;
