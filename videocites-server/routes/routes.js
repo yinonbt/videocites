@@ -4,3 +4,4 @@ const router = express.Router();
 router.get("/api/v1/posts", postController.getVideoLog);
 
 export default router;
+module.exports = router;
