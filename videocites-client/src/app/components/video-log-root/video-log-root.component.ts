@@ -11,7 +11,8 @@ export class VideoLogRootComponent implements OnInit {
   constructor(private videoLogService: VideoLogService) { }
 
   ngOnInit() {
-    this.videoLogService.getAll();
+    //this.videoLogService.getAll();
+    this.videoLogService.getVideoItems(10, 5);
   }
 
 }
