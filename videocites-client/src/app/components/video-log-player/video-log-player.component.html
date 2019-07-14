@@ -3,6 +3,7 @@
     {{ person.url }}
   </div>
   <div class="mat-video-container">
-    <mat-video [src]="person.video_url"></mat-video>
+    <div class="video-corrupted-container" *ngIf="videoIsCorrupted"><span>Video is corrupted.</span></div>
+    <mat-video #video  *ngIf="!videoIsCorrupted" [src]="person.video_url"></mat-video>
   </div>
 </mat-card>
