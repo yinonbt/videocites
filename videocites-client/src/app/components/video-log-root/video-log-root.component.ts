@@ -20,4 +20,8 @@ export class VideoLogRootComponent implements OnInit {
     this.videoLogService.getVideoItems(10, 5);
   }
 
+  onPersonSelectRequest(person: VideoLogItem) {
+    this.personSelected = person;
+  }
+
 }
