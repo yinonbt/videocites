@@ -1,0 +1,9 @@
+mat-card {
+    height: 94%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    .mat-video-container {
+        height: 97%;
+    }
+}

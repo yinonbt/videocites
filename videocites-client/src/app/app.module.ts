@@ -12,6 +12,7 @@ import { VideoLogPlayerComponent } from "./components/video-log-player/video-log
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material";
 import { MatCardModule } from "@angular/material/card";
+import { MatVideoModule } from 'mat-video';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatCardModule } from "@angular/material/card";
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatVideoModule,
     HttpClientModule
   ],
   providers: [],

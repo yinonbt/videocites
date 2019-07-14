@@ -1,3 +1,8 @@
 <mat-card>
-  video-log-player works!
+  <div>
+    {{ person.url }}
+  </div>
+  <div class="mat-video-container">
+    <mat-video [src]="person.video_url"></mat-video>
+  </div>
 </mat-card>
