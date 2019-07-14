@@ -1,0 +1,20 @@
+<button
+  mat-stroked-button
+  (click)="onClick()"
+  [ngClass]="{
+    'person-selected': personSelected?.id === person.id
+  }"
+>
+  <div class="inside-button">
+    <div class="delete-textual-container">
+      <div class="textual-container">
+        <span>{{ person.title }}</span>
+        <span>{{ person.duration }}</span>
+        <span>{{ person.published }}</span>
+      </div>
+    </div>
+    <div class="img-container">
+      <img [src]="person.thumb_url" style="max-height:100%; max-width:100%;" />
+    </div>
+  </div>
+</button>

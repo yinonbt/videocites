@@ -1,0 +1,13 @@
+mat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    overflow: auto;
+    app-video-log-item {
+        margin-bottom: 10px;
+        width: 100%;
+        min-width: 350px;
+    }
+}

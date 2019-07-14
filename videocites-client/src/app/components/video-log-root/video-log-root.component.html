@@ -1,3 +1,16 @@
-<p>
-  video-log-root works!
-</p>
+<div class="list-player-container">
+  <app-video-log-list
+    [persons]="persons$ | async"
+    [personSelected]="personSelected"
+    (personSelectRequest)="onPersonSelectRequest($event)"
+    (personDeleteRequest)="onPersonDeleteRequest($event)"
+    class="list-edit-contained"
+  ></app-video-log-list>
+  <mat-card class="list-edit-contained">
+    <app-video-log-player
+      *ngIf="personSelected != null"
+      [person]="personSelected"
+      (savePersonRequested)="onSavePersonRequested($event)"
+    ></app-video-log-player>
+  </mat-card>
+</div>

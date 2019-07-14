@@ -2,11 +2,19 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { VideoLogPage } from '../models/video-log-page';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { VideoLogItem } from '../models/video-log-item';
 
 @Injectable({
   providedIn: "root"
 })
 export class VideoLogService {
+  private personsSubject = new BehaviorSubject<VideoLogItem[]>([]);
+
+  get persons$(): Observable<VideoLogItem[]> {
+    return this.personsSubject;
+  }
+  
   constructor(private http: HttpClient) {}
 
   getAll(): void {
@@ -21,8 +29,7 @@ export class VideoLogService {
     const url = `${environment.apiUrl}api/v1/posts/${start}/${length}`;
     this.http.get<VideoLogPage>(url).subscribe(result => {
       console.log("VideoLogPage: ", result);
-      //this.personsSubject.next(result);
+      this.personsSubject.next(result.videoLogItems);
     });
-    ///:start/:length
   }
 }

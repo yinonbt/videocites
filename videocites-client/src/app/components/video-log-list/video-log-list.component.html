@@ -1,0 +1,10 @@
+<mat-card>
+  <span *ngIf="!persons || persons.length === 0">No items.</span>
+  <app-video-log-item
+    *ngFor="let person of persons"
+    [person]="person"
+    [personSelected]="personSelected"
+    (personSelectRequest)="onPersonSelectRequest($event)"
+    class="persons-list-item"
+  ></app-video-log-item>
+</mat-card>
