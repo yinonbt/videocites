@@ -12,6 +12,8 @@ export class VideoLogItemComponent implements OnInit {
   @Input() personSelected: VideoLogItem;
   @Output() personSelectRequest = new EventEmitter<VideoLogItem>();
 
+  imgIsNotValid = false;
+
   constructor() {}
 
   ngOnInit() {}
@@ -20,4 +22,7 @@ export class VideoLogItemComponent implements OnInit {
     this.personSelectRequest.emit(this.person);
   }
 
+  setImgIsNotValid() {
+    this.imgIsNotValid = true;
+  }
 }

@@ -13,8 +13,11 @@
         <span>{{ person.published }}</span>
       </div>
     </div>
-    <div class="img-container">
-      <img [src]="person.thumb_url" style="max-height:100%; max-width:100%;" />
+    <div *ngIf="!(person.thumb_url) || imgIsNotValid" class="img-placeholder">
+      <span>No Thumbnail</span>
+    </div>
+    <div class="img-container" *ngIf="person.thumb_url && !imgIsNotValid">
+      <img [src]="person.thumb_url"  (error)="setImgIsNotValid()" style="max-height:100%; max-width:100%;" />
     </div>
   </div>
 </button>
