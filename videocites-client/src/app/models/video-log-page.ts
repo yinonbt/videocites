@@ -5,5 +5,6 @@ export interface VideoLogPage {
     length: number;
     start: number;
     totalPages: number;
+    totalVideos: number;
     videoLogItems: VideoLogItem[];
 }

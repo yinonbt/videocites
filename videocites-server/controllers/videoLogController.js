@@ -45,6 +45,7 @@ class postsController {
       start: start,
       length: length,
       totalPages: totalPages,
+      totalVideos: VideoLogItems.length,
       isLast: isLast
     };
     return res.send(page);
