@@ -1,5 +1,9 @@
 <div class="person-root-container">
-  <app-video-log-pager></app-video-log-pager>
+  <app-video-log-pager
+    [start]="start$ | async"
+    [length]="length$ | async"
+    [totalVideos]="totalVideos$ | async"
+  ></app-video-log-pager>
   <div class="list-player-container">
     <app-video-log-list
       [persons]="persons$ | async"

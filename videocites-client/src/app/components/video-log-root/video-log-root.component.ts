@@ -11,9 +11,15 @@ import { Observable } from 'rxjs';
 export class VideoLogRootComponent implements OnInit {
   personSelected: VideoLogItem = null;
   persons$: Observable<VideoLogItem[]>;
+  start$: Observable<number>;
+  length$: Observable<number>;
+  totalVideos$: Observable<number>;
 
   constructor(private videoLogService: VideoLogService) { 
     this.persons$ = videoLogService.persons$;
+    this.start$ = videoLogService.start$;
+    this.length$ = videoLogService.length$;
+    this.totalVideos$ = videoLogService.totalVideos$;
   }
   ngOnInit() {
     //this.videoLogService.getAll();

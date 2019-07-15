@@ -1,3 +1,15 @@
 <mat-card>
-  video-log-pager works!
+  <button mat-icon-button (click)="onDeleteClick($event)">
+    <mat-icon>navigate_before</mat-icon>
+  </button>
+  <button mat-icon-button (click)="onDeleteClick($event)">
+    <mat-icon>navigate_next</mat-icon>
+  </button>
+  <div class="textual-container">
+    <span>{{ start + 1 }}</span>
+    <span> - </span>
+    <span>{{ start + length }}</span>
+    <span> of </span>
+    <span>{{ totalVideos }}</span>
+  </div>
 </mat-card>

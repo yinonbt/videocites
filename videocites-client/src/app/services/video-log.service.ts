@@ -1,20 +1,35 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
-import { VideoLogPage } from '../models/video-log-page';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { VideoLogItem } from '../models/video-log-item';
+import { VideoLogPage } from "../models/video-log-page";
+import { BehaviorSubject, Observable } from "rxjs";
+import { VideoLogItem } from "../models/video-log-item";
 
 @Injectable({
   providedIn: "root"
 })
 export class VideoLogService {
   private personsSubject = new BehaviorSubject<VideoLogItem[]>([]);
+  private startSubject = new BehaviorSubject<number>(null);
+  private lengthSubject = new BehaviorSubject<number>(null);
+  private totalVideosSubject = new BehaviorSubject<number>(null);
 
   get persons$(): Observable<VideoLogItem[]> {
     return this.personsSubject;
   }
-  
+
+  get start$(): Observable<number> {
+    return this.startSubject;
+  }
+
+  get length$(): Observable<number> {
+    return this.lengthSubject;
+  }
+
+  get totalVideos$(): Observable<number> {
+    return this.totalVideosSubject;
+  }
+
   constructor(private http: HttpClient) {}
 
   getAll(): void {
@@ -30,6 +45,9 @@ export class VideoLogService {
     this.http.get<VideoLogPage>(url).subscribe(result => {
       console.log("VideoLogPage: ", result);
       this.personsSubject.next(result.videoLogItems);
+      this.startSubject.next(result.start);
+      this.lengthSubject.next(result.length);
+      this.totalVideosSubject.next(result.totalVideos);
     });
   }
 }
