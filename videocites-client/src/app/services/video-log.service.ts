@@ -13,6 +13,7 @@ export class VideoLogService {
   private startSubject = new BehaviorSubject<number>(null);
   private lengthSubject = new BehaviorSubject<number>(null);
   private totalVideosSubject = new BehaviorSubject<number>(null);
+  private isLastSubject = new BehaviorSubject<boolean>(null);
 
   get persons$(): Observable<VideoLogItem[]> {
     return this.personsSubject;
@@ -28,6 +29,10 @@ export class VideoLogService {
 
   get totalVideos$(): Observable<number> {
     return this.totalVideosSubject;
+  }
+
+  get isLast$(): Observable<boolean> {
+    return this.isLastSubject;
   }
 
   constructor(private http: HttpClient) {}
@@ -48,6 +53,7 @@ export class VideoLogService {
       this.startSubject.next(result.start);
       this.lengthSubject.next(result.length);
       this.totalVideosSubject.next(result.totalVideos);
+      this.isLastSubject.next(result.isLast);
     });
   }
 }

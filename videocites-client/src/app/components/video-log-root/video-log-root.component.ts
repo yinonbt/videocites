@@ -12,18 +12,23 @@ export class VideoLogRootComponent implements OnInit {
   personSelected: VideoLogItem = null;
   persons$: Observable<VideoLogItem[]>;
   start$: Observable<number>;
-  length$: Observable<number>;
+  length$: Observable<number>;  
   totalVideos$: Observable<number>;
+  isLast$: Observable<boolean>;
+
+  start = 0;
+  length = 5;
 
   constructor(private videoLogService: VideoLogService) { 
     this.persons$ = videoLogService.persons$;
     this.start$ = videoLogService.start$;
     this.length$ = videoLogService.length$;
     this.totalVideos$ = videoLogService.totalVideos$;
+    this.isLast$ = videoLogService.isLast$;
   }
+
   ngOnInit() {
-    //this.videoLogService.getAll();
-    this.videoLogService.getVideoItems(10, 5);
+    this.videoLogService.getVideoItems(this.start, this.length);
   }
 
   onPersonSelectRequest(person: VideoLogItem) {
