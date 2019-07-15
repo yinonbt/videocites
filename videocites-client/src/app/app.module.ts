@@ -13,6 +13,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material";
 import { MatCardModule } from "@angular/material/card";
 import { MatVideoModule } from 'mat-video';
+import { VideoLogPagerComponent } from './components/video-log-pager/video-log-pager.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatVideoModule } from 'mat-video';
     VideoLogRootComponent,
     VideoLogListComponent,
     VideoLogItemComponent,
-    VideoLogPlayerComponent
+    VideoLogPlayerComponent,
+    VideoLogPagerComponent
   ],
   imports: [
     BrowserModule,
