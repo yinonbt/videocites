@@ -2,7 +2,7 @@
   <button mat-icon-button [disabled]="start === 0" (click)="onNavigateBefore($event)">
     <mat-icon>navigate_before</mat-icon>
   </button>
-  <button mat-icon-button (click)="onNavigateNext($event)">
+  <button mat-icon-button [disabled]="isLast" (click)="onNavigateNext($event)">
     <mat-icon>navigate_next</mat-icon>
   </button>
   <div class="textual-container">

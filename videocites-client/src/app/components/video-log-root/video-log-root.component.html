@@ -3,6 +3,9 @@
     [start]="start$ | async"
     [length]="length$ | async"
     [totalVideos]="totalVideos$ | async"
+    [isLast]="isLast$ | async"
+    (navigateBeforeRequired) = "onNavigateBeforeRequired($event)"
+    (navigateNextRequired) = "onNavigateNextRequired($event)"
   ></app-video-log-pager>
   <div class="list-player-container">
     <app-video-log-list

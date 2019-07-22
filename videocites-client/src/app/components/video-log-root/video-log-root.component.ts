@@ -35,4 +35,11 @@ export class VideoLogRootComponent implements OnInit {
     this.personSelected = person;
   }
 
+  onNavigateBeforeRequired(currentStart: number) {
+    this.videoLogService.getVideoItems(currentStart - this.length, this.length);
+  }
+
+  onNavigateNextRequired(currentStart: number) {
+    this.videoLogService.getVideoItems(currentStart + this.length, this.length);
+  }
 }
